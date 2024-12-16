@@ -3,7 +3,7 @@ from telebot import types
 import json
 import os
 
-bot = telebot.TeleBot('7944384802:AAHAn8OOoiyYGvImoKrd-2aJ-oFlYxoRCT4') 
+bot = telebot.TeleBot('7861103730:AAHfDoR7vVvoFPNOZowI4kIYQ4eFLRGXV5I') 
 bot2 = telebot.TeleBot('7815857634:AAGAKxqROT6hFKwx6w9veQJ22xgmPD8_ghM')  
 
 data_file = 'data.json'
@@ -55,10 +55,9 @@ def callback_message(callback):
         start(callback.message)
     if callback.data == 'VBA':
         marcupVBA = types.InlineKeyboardMarkup()
-        marcupVBA.add(types.InlineKeyboardButton('Объявление переменных', url='https://telegra.ph/je-12-04-2'))
-        marcupVBA.add(types.InlineKeyboardButton('Вывод данных', callback_data='outVBA'))
-        marcupVBA.add(types.InlineKeyboardButton('Массивы', callback_data='matrixVBA'))
-        marcupVBA.add(types.InlineKeyboardButton('Следующая страница', callback_data='nextVBA'))
+        marcupVBA.add(types.InlineKeyboardButton('Типы данных', url='https://telegra.ph/Tipy-dannyh-12-16-2'))
+        marcupVBA.add(types.InlineKeyboardButton('Ввод и вывод данных', url='https://telegra.ph/Vvod-i-vyvod-dannyh-12-16-2'))
+        marcupVBA.add(types.InlineKeyboardButton('Функции', url='https://telegra.ph/Funkcii-12-16-3'))
         marcupVBA.add(types.InlineKeyboardButton('Назад', callback_data='back'))
 
         bot.delete_message(user_id, callback.message.message_id)
@@ -68,10 +67,9 @@ def callback_message(callback):
 
     elif callback.data == 'C':
         marcupC = types.InlineKeyboardMarkup()
-        marcupC.add(types.InlineKeyboardButton('Объявление переменных', url='https://www.google.ru/?hl=ru'))
-        marcupC.add(types.InlineKeyboardButton('Вывод данных', url='https://www.google.ru/?hl=ru'))
-        marcupC.add(types.InlineKeyboardButton('Массивы', url='https://www.google.ru/?hl=ru'))
-        marcupC.add(types.InlineKeyboardButton('Следующая страница', callback_data='nextC'))
+        marcupC.add(types.InlineKeyboardButton('Типы данных', url='https://telegra.ph/Osnovnye-tipy-dannyh-12-16'))
+        marcupC.add(types.InlineKeyboardButton('Ввод и вывод данных', url='https://telegra.ph/Vvod-dannyh-12-16'))
+        marcupC.add(types.InlineKeyboardButton('Функции', url='https://telegra.ph/Funkcii-12-16'))
         marcupC.add(types.InlineKeyboardButton('Назад', callback_data='back'))
 
         bot.delete_message(user_id, callback.message.message_id)
@@ -81,10 +79,9 @@ def callback_message(callback):
     
     elif callback.data == 'Bash':
         marcupBash = types.InlineKeyboardMarkup()
-        marcupBash.add(types.InlineKeyboardButton('Объявление переменных', url='https://www.google.ru/?hl=ru'))
-        marcupBash.add(types.InlineKeyboardButton('Вывод данных', url='https://www.google.ru/?hl=ru'))
-        marcupBash.add(types.InlineKeyboardButton('Массивы', url='https://www.google.ru/?hl=ru'))
-        marcupBash.add(types.InlineKeyboardButton('Следующая страница', callback_data='nextC'))
+        marcupBash.add(types.InlineKeyboardButton('Типы данных', url='https://telegra.ph/Tipy-dannyh-12-16'))
+        marcupBash.add(types.InlineKeyboardButton('Ввод и вывод данных', url='https://telegra.ph/Vvod-i-vyvod-dannyh-12-16'))
+        marcupBash.add(types.InlineKeyboardButton('Функции', url='https://telegra.ph/Funkcii-12-16-2'))
         marcupBash.add(types.InlineKeyboardButton('Назад', callback_data='back'))
 
         bot.delete_message(user_id, callback.message.message_id)

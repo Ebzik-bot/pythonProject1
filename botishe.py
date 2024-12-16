@@ -1,9 +1,26 @@
 import telebot
 from telebot import types
+import json
+import os
 
 bot = telebot.TeleBot('7944384802:AAHAn8OOoiyYGvImoKrd-2aJ-oFlYxoRCT4')  
-bot2 = telebot.TeleBot('7815857634:AAGAKxqROT6hFKwx6w9veQJ22xgmPD8_ghM')  
+bot2 = telebot.TeleBot('7815857634:AAGAKxqROT6hFKwx6w9veQJ22xgmPD8_ghM') 
+
 user_states = {}
+
+data_file = 'data.json'
+
+def load_data():
+    if os.path.exists(data_file):
+        with open(data_file, 'r') as f:
+            return json.load(f)
+    return {}
+
+def save_data(data):
+    with open(data_file, 'w') as f:
+        json.dump(data, f)
+
+data = load_data()
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -13,7 +30,8 @@ def start(message):
     markup.add(types.InlineKeyboardButton('Bash', callback_data='Bash'))
     markup.add(types.InlineKeyboardButton('Ваши предложения', callback_data='predlozka'))
     bot.send_message(message.chat.id, 'Спасибо, что выбрали нас, выберите язык:', reply_markup=markup)
-    user_states[message.chat.id] = 'main_menu' 
+    user_states[message.chat.id] = 'main_menu'
+    
 
 @bot.callback_query_handler(func=lambda callback: True)
 def callback_message(callback):
@@ -32,6 +50,7 @@ def callback_message(callback):
         bot.delete_message(user_id, callback.message.message_id)
         bot.send_message(user_id, 'Выберите опцию:', reply_markup=marcupVBA)
         user_states[user_id] = 'vba_menu'
+
 
     elif callback.data == 'C':
         marcupC = types.InlineKeyboardMarkup()
